@@ -1,0 +1,126 @@
+.TH httpc 1  "2025-10-05" "version 0.1" "USER COMMANDS"
+.SH NAME
+
+httpc \- A robust yet minimal HTTP GET client.
+
+.SH SYNOPSIS
+
+.B httpc
+[OPTIONS]...
+
+.SH DESCRIPTION
+A minimal yet robust HTTP/1.1 GET client written in C.
+It builds a GET request, sends it over POSIX sockets (IPv4/IPv6), parses the response, and prints the result.
+Comes with a few unit tests.
+
+Goal: provide a clear, self-contained, and extensible learning base for writing a simple HTTP client without third-party HTTP libraries.
+.PP
+
+.SH OPTIONS
+
+.TP
+\-h, \-\-help,
+Display the help message
+.TP
+
+.TP
+\-v, \-\-version,
+Display the version
+.TP
+
+.TP
+\-D, \-\-debug,
+Enable the debug logs (deactivated)
+.TP
+
+.TP
+\-t, \-\-test,
+Run the unit tests
+.TP
+
+.TP
+\-T, \-\-tls,
+Enable TLS (deactivated)
+.TP
+
+.TP
+\-H, \-\-host [hostname]
+Set the target hostname
+.TP
+
+.TP
+\-p, \-\-port [number]
+Set the target port
+.TP
+
+.TP
+\-P, \-\-path [path],
+Set the target HTTP path to request
+.TP
+
+.TP
+\-\-http\-header [key:value]
+Set a HTTP header for the request
+.TP
+
+.TP
+\-\-get\-code
+Display the reply code
+.TP
+
+.TP
+\-\-get\-headers
+Display the reply HTTP headers
+.TP
+
+.TP
+\-\-get\-body
+Display the reply body
+.TP
+
+
+.SH EXAMPLES
+
+.TP
+
+Ask for the HTTP reply code and body, while setting a dumb header:
+
+.B $ httpc
+-H httpbin.io -p 80 -P /json --get-code --get-body --http-header "foo:bar"
+
+.RE
+200
+
+{
+  "slideshow": {
+    "author": "Yours Truly",
+    "date": "date of publication",
+    "slides": [
+      {
+        "title": "Wake up to WonderWidgets!",
+        "type": "all"
+      },
+      {
+        "items": [
+          "Why <em>WonderWidgets</em> are great",
+          "Who <em>buys</em> WonderWidgets"
+        ],
+        "title": "Overview",
+        "type": "all"
+      }
+    ],
+    "title": "Sample Slide Show"
+  }
+}
+
+.PP
+
+.SH NOTES
+This project is intentionally educational and minimal — each function focuses on clarity, correctness, and testability.
+
+Don't contact me.
+.SH AUTHOR
+Hiding somewhere <x@pwn.lu>
+
+.SH SEE ALSO
+curl(1), wget(1)
