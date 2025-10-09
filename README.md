@@ -63,8 +63,9 @@ make
 ```
 This builds:
 
+the final binary:
 ```bash
-bin/httpc — the final binary
+bin/httpc
 ```
 
 To clean:
